@@ -1,0 +1,28 @@
+<div class="card bg-dark border-primary mb-3 text-white">
+    <div class="card-header">Entidades Financieras</div>
+    <div class="card-body text-primary">      
+      <div *ngIf="personas?.length == 0" class="alert alert-info">
+        No hay registros en la base de datos!
+      </div>
+      <table class="table-responsive table-striped table-dark table-bordered mat-typography">
+        <thead>
+          <tr>
+            <th class="text-center">Identificación</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Fecha Creación</th>
+            <th class="text-center">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of personas">
+            <td class="text-center">{{ persona.identificacion }}</td>
+            <td class="text-center">{{ persona.nombre }}</td>
+            <td class="text-center">{{ persona.fechaCreacion }}</td>
+            <td align="center">
+                <button type="button" (click)='eliminarPersona(persona.identificacion)' name="Eliminar" class="btn btn-primary btn-sm">Eliminar</button>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
